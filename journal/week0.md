@@ -94,3 +94,10 @@ aws budgets create-budget \
 ## Using EventBridge to hookup Health Dashboard to SNS
 First create an SNS topic for your EventBridge.
 Choose topic type as **Standard** and leave the all other options as default
+![SNS topic](Diagrams/SNS topic.GIF).
+
+Your created topic should be as below.
+![SNS topic](Diagrams/SNStopic1.GIF)
+
+
+Navigate to **Amzaon EventBridge**
