@@ -90,14 +90,34 @@ aws budgets create-budget \
 ```
 
 
-# WEEKO Challenge
+# WEEK 0 Challenge
 ## Using EventBridge to hookup Health Dashboard to SNS
 First create an SNS topic for your EventBridge.
 Choose topic type as **Standard** and leave the all other options as default
-![SNS topic](Diagrams/SNS topic.GIF).
+![SNStopic](Diagrams/SNStopic.GIF).
 
 Your created topic should be as below.
 ![SNS topic](Diagrams/SNStopic1.GIF)
 
 
-Navigate to **Amzaon EventBridge**
+Be sure to create a subscription to the SNS topic with *type of endpoint to subscribe as email*.
+
+Then confirm subscription in your email.
+
+Navigate to **Amazon EventBridge**
+
+Create Rule
+![Event](Diagrams/event1.GIF)
+
+
+![Event](Diagrams/event2.GIF)
+
+![Event](Diagrams/event3.GIF)
+
+
+Select SNS as the event target, choosing Health-notification, the topic you created earlier, as your SNS topic
+![Event](Diagrams/event4.GIF)
+
+Review and Create the rule.
+
+You have successfully used **Event Bridge** to hookup **Health Dashboard** to **SNS**
