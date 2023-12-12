@@ -24,3 +24,72 @@ $ aws configure
  Default output format [None]: json
 ```
 Replace them with your own values
+
+## Create a Cost and Usage Budget
+First create a budget.json file and copy the contents below to the file
+```
+{
+    "BudgetLimit": {
+        "Amount": "100",
+        "Unit": "USD"
+    },
+    "BudgetName": "Example Tag Budget",
+    "BudgetType": "COST",
+    "CostFilters": {
+        "TagKeyValue": [
+            "user:Key$value1",
+            "user:Key$value2"
+        ]
+    },
+    "CostTypes": {
+        "IncludeCredit": true,
+        "IncludeDiscount": true,
+        "IncludeOtherSubscription": true,
+        "IncludeRecurring": true,
+        "IncludeRefund": true,
+        "IncludeSubscription": true,
+        "IncludeSupport": true,
+        "IncludeTax": true,
+        "IncludeUpfront": true,
+        "UseBlended": false
+    },
+    "TimePeriod": {
+        "Start": 1477958399,
+        "End": 3706473600
+    },
+    "TimeUnit": "MONTHLY"
+}
+```
+Replace with your own values.
+Then create a budget-notifications with subscribers.json file.
+Populate it with the following values
+```
+[
+    {
+        "Notification": {
+            "ComparisonOperator": "GREATER_THAN",
+            "NotificationType": "ACTUAL",
+            "Threshold": 80,
+            "ThresholdType": "PERCENTAGE"
+        },
+        "Subscribers": [
+            {
+                "Address": "example@example.com",
+                "SubscriptionType": "EMAIL"
+            }
+        ]
+    }
+]
+```
+Then run the following command. You can then confirm the busget has been created using the console.
+```
+aws budgets create-budget \
+    --account-id 111122223333 \
+    --budget file://budget.json \
+    --notifications-with-subscribers file://notifications-with-subscribers.json
+```
+
+
+# WEEKO Challenge
+## Using EventBridge to hookup Health Dashboard to SNS
+First create an SNS topic for your EventBridge.
