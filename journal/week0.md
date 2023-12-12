@@ -14,3 +14,13 @@ Confirm the installation with the following command. If the **aws** command is n
 aws --version
 ```
 ## Generate AWS Credentials
+First create your IAM user and generate the access keys for the User using the console. [Creating IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console)
+. Use **aws configure** command to setup your AWS CLI Installation
+```
+$ aws configure
+ AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+ AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+ Default region name [None]: us-west-2
+ Default output format [None]: json
+```
+Replace them with your own values
