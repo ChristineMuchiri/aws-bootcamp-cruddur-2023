@@ -93,3 +93,4 @@ aws budgets create-budget \
 # WEEKO Challenge
 ## Using EventBridge to hookup Health Dashboard to SNS
 First create an SNS topic for your EventBridge.
+Choose topic type as **Standard** and leave the all other options as default
