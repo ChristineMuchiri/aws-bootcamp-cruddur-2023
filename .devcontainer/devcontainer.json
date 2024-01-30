@@ -1,0 +1,19 @@
+// .devcontainer/devcontainer.json
+{
+    "name": "My Codespace",
+    "extensions": [
+      "amazon.webservices-cli",
+      // Add other VS Code extensions as needed
+    ],
+    "runArgs": ["--privileged"],
+    "settings": {
+      "amazonwebservices.awsprofile": "Tiny-M",
+      "amazonwebservices.awsconfig": {
+        "output": "json",
+        "region": "us-east-1"
+      // Other VS Code settings as needed
+    },
+    "postCreateCommand": "aws configure",
+    "remoteUser": "codespace"
+  }
+  
